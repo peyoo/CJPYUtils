@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 cjpystuido. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "UtilsApp.h"
 
-@implementation AppDelegate
+@implementation UtilsApp
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
