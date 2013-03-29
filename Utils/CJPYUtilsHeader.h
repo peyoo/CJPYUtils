@@ -6,7 +6,6 @@
 //  Copyright (c) 2012年 ‚. All rights reserved.
 //
 
-#import "BlocksKit.h"
 #import "CJPYUtilsGlobals.h"
 
 
@@ -44,7 +43,5 @@
 #import "NSMutableArray+Stack.h"
 
 #import "GAI+Utils.h"
-
-#import "BaseApp.h"
 
 #import "CJPYWebViewController.h"

@@ -1,27 +1,21 @@
 //
-//  BaseApp.m
-//  PhotosLikePinterest
+//  UIResponder+APP.m
+//  Utils
 //
-//  Created by 彭 勇 on 12-12-21.
-//  Copyright (c) 2012年 ‚àö√á≈í¬©‚Äö√¢‚Ä† ‚àö√á‚àö¬£‚àö¬∞. All rights reserved.
+//  Created by 彭 勇 on 13-3-28.
+//  Copyright (c) 2013年 cjpystuido. All rights reserved.
 //
 
-#import "BaseApp.h"
+#import "UIResponder+APP.h"
 #import "GAI.h"
 #import "iRate.h"
 #import "iVersion.h"
-
-@interface BaseApp()
-
-
-@end
 
 void uncaughtExceptionHandler(NSException *exception) {
     NSLog(@"CRASH: %@", exception);
     NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
 }
-
-@implementation BaseApp
+@implementation UIResponder (APP)
 
 -(void)debugCatchException{
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
@@ -43,6 +37,5 @@ void uncaughtExceptionHandler(NSException *exception) {
 -(void)configVersion{
     [iVersion sharedInstance];
 }
-
 
 @end
