@@ -94,6 +94,7 @@
         _dict=[NSMutableDictionary dictionary];
     }
     [_dict removeAllObjects];
+    [_pins removeAllObjects];
 }
 
 -(void)addPins:(NSArray *)pins{

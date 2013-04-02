@@ -15,10 +15,10 @@
 
 
 
-@class UICollectionViewWaterfallLayout;
+@class CJPYWaterFallCollectionLayout;
 @protocol UICollectionViewDelegateWaterfallLayout <UICollectionViewDelegate>
 - (CGFloat)collectionView:(UICollectionView *)collectionView
-                   layout:(UICollectionViewWaterfallLayout *)collectionViewLayout
+                   layout:(CJPYWaterFallCollectionLayout *)collectionViewLayout
  heightForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 - (CGSize)headerSize;

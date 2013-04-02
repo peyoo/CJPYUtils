@@ -12,6 +12,8 @@
 
 +(void)trackError:(NSError*)error;
 
++(void)trackException:(NSException*)exception;
+
 
 
 

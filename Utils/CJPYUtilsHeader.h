@@ -38,7 +38,6 @@
 #import "UIImage+GIF.h"
 #import "UIImage+Scale.h"
 #import "UIImageView+WebCache_Gif.h"
-#import "CJPYImagePrefetcher.h"
 
 #import "NSMutableArray+Stack.h"
 

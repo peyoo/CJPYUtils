@@ -26,7 +26,7 @@
     for (size_t i = 0; i < count; i++) {
         CGImageRef image = CGImageSourceCreateImageAtIndex(source, i, NULL);
         
-        NSDictionary* frameProperties = (__bridge NSDictionary*)CGImageSourceCopyPropertiesAtIndex(source, i, NULL);
+        NSDictionary* frameProperties = (__bridge_transfer NSDictionary*)CGImageSourceCopyPropertiesAtIndex(source, i, NULL);
         duration += [[[frameProperties objectForKey:(NSString*)kCGImagePropertyGIFDictionary] objectForKey:(NSString*)kCGImagePropertyGIFDelayTime] doubleValue];
         
         [images addObject:[UIImage imageWithCGImage:image scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp]];
@@ -48,9 +48,7 @@
     if (data) {
         return [UIImage animatedGIFWithData:data];
     }
-    return nil;
-    
-    
+    return nil;    
 }
 
 +(UIImage*)animatedGIFNamed:(NSString *)name {

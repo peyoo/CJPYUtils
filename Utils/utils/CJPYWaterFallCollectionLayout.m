@@ -120,6 +120,7 @@
         for (NSInteger idx = 0; idx < _columnCount; idx++) {
             [_columnHeights addObject:@(_sectionInset.top)];
         }
+        self.withHeader=NO;
     }
     
     // Item will be put into shortest column.
@@ -182,10 +183,11 @@
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)path
 {
-    if (self.withHeader) {
-        return (self.itemAttributes)[path.item+1];
+    NSInteger pos=self.withHeader?(path.item+1):path.item;
+    if (pos<[self.itemAttributes count]) {
+        return self.itemAttributes[pos];
     }
-    return (self.itemAttributes)[path.item];
+    return nil;
 }
 
 -(UICollectionViewLayoutAttributes*)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
@@ -194,53 +196,11 @@
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-//    NSInteger count=[_itemAttributes count];
-//    if (count==0) {
-//        return nil;
-//    }
-//    NSInteger startIndex=0;
-//    NSInteger endIndex=count-1;
-//    
-//    UICollectionViewLayoutAttributes * startAttr;
-//    UICollectionViewLayoutAttributes * endAttr;
-//    float topBase=rect.origin.y;
-//    float bottomBase=topBase+rect.size.height;
-//    while (endIndex>startIndex+1) {
-//        startAttr=_itemAttributes[startIndex];
-//        endAttr=_itemAttributes[endIndex];
-//        if (startAttr.frame.origin.y>=bottomBase) {
-//            endIndex=(startIndex+endIndex)/2;
-//        }else{
-//            startIndex=(startIndex+endIndex)/2;
-//        }
-//    }
-//    NSMutableArray * array=[NSMutableArray array];
-//    NSMutableArray * barray=[@[@NO,@NO,@NO,@NO] mutableCopy];
-//    int nocol=4;
-//    for (int index=endIndex; index>=0; index--) {
-//        startAttr=_itemAttributes[index];
-//        if (startAttr.frame.origin.y+startAttr.frame.size.height>topBase) {
-//            [array addObject:startAttr];
-//        }else{
-//            int col=index%4;
-//            BOOL bcol=[barray[col] boolValue];
-//            if (!bcol) {
-//                nocol--;
-//                barray[col]=@YES;
-//                if (!nocol) {
-//                    break;
-//                }
-//            }
-//        }
-//    }
-//    return  array;
-
     NSArray * attrs= [self.itemAttributes filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         CGRect frame=[evaluatedObject frame];
             return CGRectIntersectsRect(rect, frame);
     }]];
     return attrs;
-//    return self.itemAttributes;
 }
 -(UICollectionViewLayoutAttributes*)headerAttribute{
     _headerAttribute=[UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];

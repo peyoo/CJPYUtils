@@ -44,52 +44,62 @@
 }
 
 -(void)setProgressImageWithURL:(NSURL*)url{
+    __weak UIImageView * sself=self;
+    
     [self setImageWithURL:url placeholderImage:self.image options:0 progress:^(NSUInteger receivedSize, long long expectedSize) {
+        if (sself==nil) {
+            
+            return ;
+        }
         float progress=receivedSize/(expectedSize*1.0);
         if (progress > 0) {
             UIProgressView *prg = nil;
-            if ([self viewWithTag:kSDWebImageProgressView] == nil) {
-                CGRect r = CGRectMake(0, (self.frame.size.height / 2), self.frame.size.width, 30);
+            if ([sself viewWithTag:kSDWebImageProgressView] == nil) {
+                CGRect r = CGRectMake(0, (sself.frame.size.height / 2), sself.frame.size.width, 30);
                 prg = [[UIProgressView alloc] initWithFrame:r];
                 prg.autoresizingMask=UIViewAutoresizingFlexibleWidth;
                 prg.tag = kSDWebImageProgressView;
                 prg.progressViewStyle = UIProgressViewStyleDefault;
-                [self addSubview:prg];
+                [sself addSubview:prg];
             } else {
-                prg = (UIProgressView *)[self viewWithTag:kSDWebImageProgressView];
+                prg = (UIProgressView *)[sself viewWithTag:kSDWebImageProgressView];
             }
             [prg setHidden:NO];
             [prg setProgress:progress];
         }
     }completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-        [(UIProgressView *)[self viewWithTag:kSDWebImageProgressView] setHidden:YES];
+        [(UIProgressView *)[sself viewWithTag:kSDWebImageProgressView] setHidden:YES];
     }];
 }
 
 -(void)setMayGifProgressImageWithURL:(NSURL*)url{
+    __weak UIImageView * sself=self;
     [self setImageWithURL:url placeholderImage:self.image options:0 progress:^(NSUInteger receivedSize, long long expectedSize) {
+        if (sself==nil) {
+            return ;
+        }
         float progress=receivedSize/(expectedSize*1.0);
         if (progress > 0) {
             UIProgressView *prg = nil;
-            if ( [ self viewWithTag: kSDWebImageProgressView ] == nil) {
-                CGRect r = CGRectMake(0, (self.frame.size.height / 2), self.frame.size.width, 30);
+            if ( [ sself viewWithTag: kSDWebImageProgressView ] == nil) {
+                CGRect r = CGRectMake(0, (sself.frame.size.height / 2), sself.frame.size.width, 30);
                 prg = [[UIProgressView alloc] initWithFrame:r];
                 prg.autoresizingMask=UIViewAutoresizingFlexibleWidth;
                 prg.tag = kSDWebImageProgressView;
                 prg.progressViewStyle = UIProgressViewStyleDefault;
-                [self addSubview:prg];
+                [sself addSubview:prg];
             } else {
-                prg = (UIProgressView *)[self viewWithTag:kSDWebImageProgressView];
+                prg = (UIProgressView *)[sself viewWithTag:kSDWebImageProgressView];
             }
             [prg setHidden:NO];
             [prg setProgress:progress];
         }
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-        [(UIProgressView *)[self viewWithTag:kSDWebImageProgressView] setHidden:YES];
+        [(UIProgressView *)[sself viewWithTag:kSDWebImageProgressView] setHidden:YES];
         if (image&&[url.absoluteString.lowercaseString hasSuffix:@".gif"]) {
             [[SDImageCache sharedImageCache] queryDiskGifForKey:url.absoluteString done:^(UIImage *gifImage) {
                 if (gifImage) {
-                    [self setImage:gifImage];
+                    [sself setImage:gifImage];
                 }
             }];
         }

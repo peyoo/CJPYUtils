@@ -88,7 +88,7 @@
             }
             
             if (gotNumber) {
-                [result appendFormat:@"%C", charCode];
+                [result appendFormat:@"%u", charCode];
                 
                 [scanner scanString:@";" intoString:NULL];
             }
@@ -153,11 +153,11 @@ finish:
 }
 
 +(BOOL)empty:(NSString*)str{
-    return str==(id)[NSNull null]||str.length==0;
+    return str==nil||str==(id)[NSNull null]||[str description].length==0;
 }
 
 +(BOOL)notEmpty:(NSString*)str{
-    return str!=(id)[NSNull null]&&str.length!=0;
+    return str!=(id)[NSNull null]&&[str description].length!=0;
 }
 -(BOOL)contain:(NSString*)str{
     if (!str) {

@@ -17,14 +17,14 @@
 -(void)set:(NSInteger)title sub:(NSString*)sub{
     NSString * str=[NSString stringWithFormat:@"%d\n%@",title,sub];
     self.titleLabel.textAlignment=NSTextAlignmentCenter;
-    self.titleLabel.lineBreakMode=UILineBreakModeWordWrap;
+    self.titleLabel.lineBreakMode=NSLineBreakByWordWrapping;
     [self setTitle:str forState:UIControlStateNormal];
 }
 
 -(void)setTitle:(NSString *)title sub:(NSString*)sub{
     NSString * str=[NSString stringWithFormat:@"%@\n%@",title,sub];
     self.titleLabel.textAlignment=NSTextAlignmentCenter;
-    self.titleLabel.lineBreakMode=UILineBreakModeWordWrap;
+    self.titleLabel.lineBreakMode=NSLineBreakByWordWrapping;
     [self setTitle:str forState:UIControlStateNormal];
 }
 
