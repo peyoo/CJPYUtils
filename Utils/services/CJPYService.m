@@ -1,6 +1,8 @@
 
 #import "CJPYService.h"
 #import "BlocksKit.h"
+#import <RegexKitLite.h>
+#import "ASINetworkQueue.h"
 
 static id PinBoardService;
 
@@ -17,40 +19,94 @@ static id PinBoardService;
 
 @implementation ASIHTTPRequest (CJPY)
 
-+(ASIHTTPRequest*)request:(NSString*)url headers:(NSDictionary*)dict{
-    return [self request:url para:nil headers:dict];
-}
-+(ASIFormDataRequest*)formRequest:(NSString*)url headers:(NSDictionary*)headers{
-    return [self formRequest:url para:nil headers:headers];
-}
-+(ASIHTTPRequest*)request:(NSString*)urlStr para:(NSDictionary*)paras headers:(NSDictionary*)headers{
-    NSMutableString * requestURL=[[NSMutableString alloc] initWithString:urlStr];
-    if (![urlStr rangeOfString:@"?"].location!=NSNotFound) {
-        [requestURL appendString:@"?"];
++(ASIHTTPRequest*)queue:(ASINetworkQueue*)queue request:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers before:(CJPYObjectBlock)before success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
+    NSMutableString * requestURL=[[NSMutableString alloc] initWithString:url];
+    if (paras) {
+        [paras each:^(NSString * key, NSString * value) {
+            [requestURL replaceOccurrencesOfRegex:key withString:value];
+        }];
     }
-    [paras each:^(NSString * key, id obj) {
-        [requestURL appendFormat:@"&%@=%@",key,obj];
+    ASIHTTPRequest * request=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:requestURL]];
+    
+    if (headers) {
+        [headers each:^(NSString * key, NSString * value) {
+            [request addRequestHeader:key value:value];
+        }];
+    }
+    
+    if (before) {
+        before(request);
+    }
+    __weak ASIHTTPRequest * weakRequest=request;
+    
+    request.completionBlock=^{
+        NSString * page=weakRequest.responseString;
+        success(page);
+    };
+    [request setFailedBlock:^{
+        fail(weakRequest.error);
     }];
-    __block ASIHTTPRequest * httpRequest=[[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:requestURL]];
-    [headers each:^(NSString * key, NSString * obj) {
-        [httpRequest addRequestHeader:key value:obj];
-    }];
-    return httpRequest;
+    if (queue) {
+        [queue addOperation:request];
+    }else{
+        [request startAsynchronous];
+    }
+    return request;
+}
++(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers before:(CJPYObjectBlock)before success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
+    return [ASIHTTPRequest queue:nil request:url paras:paras headers:headers before:before success:success fail:fail];
+}
++(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)paras success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
+    return [ASIHTTPRequest request:url paras:paras headers:nil before:nil success:success fail:fail];
 }
 
-+(ASIFormDataRequest*)formRequest:(NSString*)urlStr para:(NSDictionary*)paras headers:(NSDictionary*)headers{
-    NSMutableString * requestURL=[[NSMutableString alloc] initWithString:urlStr];
-    if (![urlStr rangeOfString:@"?"].location!=NSNotFound) {
-        [requestURL appendString:@"?"];
+
++(ASIFormDataRequest*)queue:(ASINetworkQueue*)queue form:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
+    NSMutableString * requestURL=[[NSMutableString alloc] initWithString:url];
+    if (paras) {
+        [paras each:^(NSString * key, NSString * value) {
+            [requestURL replaceOccurrencesOfRegex:key withString:value];
+        }];
     }
-    [paras each:^(NSString * key, id obj) {
-        [requestURL appendFormat:@"&%@=%@",key,obj];
+    ASIFormDataRequest * request=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:requestURL]];
+    
+    if (headers) {
+        [headers each:^(NSString * key, NSString * value) {
+            [request addRequestHeader:key value:value];
+        }];
+    }
+    
+    if (formParas) {
+        [formParas each:^(NSString * key, id  value) {
+            [request addPostValue:value forKey:key];
+        }];
+    }
+    
+    if (before) {
+        before(request);
+    }
+    __weak ASIHTTPRequest * weakRequest=request;
+    
+    request.completionBlock=^{
+        NSString * page=weakRequest.responseString;
+        success(page);
+    };
+    [request setFailedBlock:^{
+        fail(weakRequest.error);
     }];
-    ASIFormDataRequest * formRequest=[[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:requestURL]];
-    [headers each:^(NSString * key, NSString * obj) {
-        [formRequest addRequestHeader:key value:obj];
-    }];
-    return formRequest;
+    if (queue) {
+        [queue addOperation:request];
+    }else{
+        [request startAsynchronous];
+    }
+    return request;
+}
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before  success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
+    return [ASIHTTPRequest queue:nil form:url paras:paras headers:nil formParas:formParas before:before  success:success fail:fail];
+}
+
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
+    return [ASIHTTPRequest queue:nil form:url paras:paras headers:nil formParas:formParas before:nil  success:success fail:fail];
 }
 
 @end

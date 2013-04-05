@@ -9,4 +9,19 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.source_files = 'Classes', 'Utils/**/*.{h,m}'
   s.requires_arc = true
+  s.dependency 'GoogleAnalytics-iOS-SDK','2.0beta4'
+  s.dependency 'JSONKit'
+  s.dependency 'BlocksKit'
+  s.dependency 'OHAttributedLabel'
+  s.dependency 'ASIHTTPRequest'
+  s.dependency 'iRate'
+  s.dependency 'iVersion'
+  s.dependency 'iNotify'
+  s.dependency 'MBProgressHUD'
+  s.dependency 'SDWebImage'
+  s.dependency 'MagicalRecord'
+  s.dependency 'SFHFKeychainUtils'
+  s.dependency 'Slash'
+
+
 end

@@ -15,7 +15,7 @@
 
 @class CJPYRequest;
 
-
+@class ASINetworkQueue;
 @protocol CJPYService <NSObject>
 
 -(void)query:(CJPYRequest*)request success:(CJPYArrayBlock)successBlock fail:(CJPYErrorBlock)errorblock;
@@ -24,11 +24,20 @@
 
 @interface ASIHTTPRequest (CJPY)
 
-+(ASIHTTPRequest*)request:(NSString*)url headers:(NSDictionary*)dict;
-+(ASIFormDataRequest*)formRequest:(NSString*)url headers:(NSDictionary*)dict;
-+(ASIHTTPRequest*)request:(NSString*)url para:(NSDictionary*)dict headers:(NSDictionary*)dict;
-+(ASIFormDataRequest*)formRequest:(NSString*)url para:(NSDictionary*)dict headers:(NSDictionary*)dict;
 
+
+
++(ASIHTTPRequest*)queue:(ASINetworkQueue*)queue request:(NSString*)url paras:(NSDictionary*)dict headers:(NSDictionary*)dict before:(CJPYObjectBlock)before success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
++(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)dict headers:(NSDictionary*)headers before:(CJPYObjectBlock)before success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
++(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)paras success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
+
+
+
+
++(ASIFormDataRequest*)queue:(ASINetworkQueue*)queue  form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before  success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before  success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
+
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
 
 @end
 

@@ -11,8 +11,6 @@
 		082F9AC217016FA500FC8BBB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082F9AC117016FA500FC8BBB /* Foundation.framework */; };
 		082F9AC417016FA500FC8BBB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082F9AC317016FA500FC8BBB /* CoreGraphics.framework */; };
 		082F9ACA17016FA500FC8BBB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 082F9AC817016FA500FC8BBB /* InfoPlist.strings */; };
-		082F9ACC17016FA500FC8BBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F9ACB17016FA500FC8BBB /* main.m */; };
-		082F9AD017016FA500FC8BBB /* UtilsApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F9ACF17016FA500FC8BBB /* UtilsApp.m */; };
 		082F9AD217016FA500FC8BBB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F9AD117016FA500FC8BBB /* Default.png */; };
 		082F9AD417016FA500FC8BBB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F9AD317016FA500FC8BBB /* Default@2x.png */; };
 		082F9AD617016FA500FC8BBB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F9AD517016FA500FC8BBB /* Default-568h@2x.png */; };
@@ -51,7 +49,6 @@
 		082F9B7B17016FD000FC8BBB /* GAI+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F9B2017016FD000FC8BBB /* GAI+Utils.m */; };
 		082F9B7C17016FD000FC8BBB /* IMTWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F9B2217016FD000FC8BBB /* IMTWebView.m */; };
 		082F9B7D17016FD000FC8BBB /* MBProgressHUD+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F9B2417016FD000FC8BBB /* MBProgressHUD+Message.m */; };
-		082F9B7E17016FD000FC8BBB /* NSDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F9B2617016FD000FC8BBB /* NSDictionary+Additions.m */; };
 		082F9B7F17016FD000FC8BBB /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F9B2817016FD000FC8BBB /* NSMutableArray+Stack.m */; };
 		082F9B8017016FD000FC8BBB /* NSNumber+format.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F9B2A17016FD000FC8BBB /* NSNumber+format.m */; };
 		082F9B8117016FD000FC8BBB /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 082F9B2C17016FD000FC8BBB /* NSString+HTML.m */; };
@@ -80,6 +77,10 @@
 		082F9B9817016FD000FC8BBB /* MessageEntrySendButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 082F9B5317016FD000FC8BBB /* MessageEntrySendButtonPressed@2x.png */; };
 		08479F4A1709EE17005259BD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 08479F491709EE17005259BD /* Podfile */; };
 		0856C164170434DB00E559E6 /* UIResponder+APP.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856C163170434DB00E559E6 /* UIResponder+APP.m */; };
+		088FAC61170C8080005D5872 /* ImportHeaders.sh in Resources */ = {isa = PBXBuildFile; fileRef = 088FAC60170C8080005D5872 /* ImportHeaders.sh */; };
+		088FAC67170C828E005D5872 /* CJPYUtils.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 088FAC66170C828E005D5872 /* CJPYUtils.podspec */; };
+		08948FE1170D28B300EAFF0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08948FE0170D28B300EAFF0A /* main.m */; };
+		08948FE5170D3E2800EAFF0A /* NSIndexPath+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 08948FE4170D3E2800EAFF0A /* NSIndexPath+Create.m */; };
 		08DF8D2E1701DCFD006A7DDE /* UIStoryboardSegue+content.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DF8D2D1701DCFD006A7DDE /* UIStoryboardSegue+content.m */; };
 		08E7D9A31705A116000FB5F1 /* CJPYCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E7D9A21705A116000FB5F1 /* CJPYCollectionViewController.m */; };
 		AEC8D56D92DE4F0AAA02BAD6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D65A6876F44D31A5B2C0D6 /* libPods.a */; };
@@ -92,10 +93,7 @@
 		082F9AC317016FA500FC8BBB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		082F9AC717016FA500FC8BBB /* Utils-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Utils-Info.plist"; sourceTree = "<group>"; };
 		082F9AC917016FA500FC8BBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		082F9ACB17016FA500FC8BBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		082F9ACD17016FA500FC8BBB /* Utils-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Utils-Prefix.pch"; sourceTree = "<group>"; };
-		082F9ACE17016FA500FC8BBB /* UtilsApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsApp.h; sourceTree = "<group>"; };
-		082F9ACF17016FA500FC8BBB /* UtilsApp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UtilsApp.m; sourceTree = "<group>"; };
 		082F9AD117016FA500FC8BBB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		082F9AD317016FA500FC8BBB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		082F9AD517016FA500FC8BBB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 		082F9AE717016FD000FC8BBB /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		082F9AE817016FD000FC8BBB /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		082F9AEC17016FD000FC8BBB /* CJPYUtilsGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPYUtilsGlobals.h; sourceTree = "<group>"; };
-		082F9AED17016FD000FC8BBB /* CJPYUtilsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPYUtilsHeader.h; sourceTree = "<group>"; };
 		082F9AF117016FD000FC8BBB /* CJPYMutiSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPYMutiSelectViewController.h; sourceTree = "<group>"; };
 		082F9AF217016FD000FC8BBB /* CJPYMutiSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJPYMutiSelectViewController.m; sourceTree = "<group>"; };
 		082F9AF317016FD000FC8BBB /* CJPYSingleSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPYSingleSelectViewController.h; sourceTree = "<group>"; };
@@ -137,7 +134,6 @@
 		082F9B0C17016FD000FC8BBB /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		082F9B0D17016FD000FC8BBB /* settins@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settins@2x.png"; sourceTree = "<group>"; };
 		082F9B0E17016FD000FC8BBB /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
-		082F9B0F17016FD000FC8BBB /* SDWebCacheHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebCacheHeader.h; sourceTree = "<group>"; };
 		082F9B1117016FD000FC8BBB /* CJPYService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPYService.h; sourceTree = "<group>"; };
 		082F9B1217016FD000FC8BBB /* CJPYService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJPYService.m; sourceTree = "<group>"; };
 		082F9B1417016FD000FC8BBB /* ChromeProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChromeProgressBar.h; path = ../utils/ChromeProgressBar.h; sourceTree = "<group>"; };
@@ -153,8 +149,6 @@
 		082F9B2217016FD000FC8BBB /* IMTWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMTWebView.m; path = ../utils/IMTWebView.m; sourceTree = "<group>"; };
 		082F9B2317016FD000FC8BBB /* MBProgressHUD+Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Message.h"; sourceTree = "<group>"; };
 		082F9B2417016FD000FC8BBB /* MBProgressHUD+Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Message.m"; sourceTree = "<group>"; };
-		082F9B2517016FD000FC8BBB /* NSDictionary+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Additions.h"; sourceTree = "<group>"; };
-		082F9B2617016FD000FC8BBB /* NSDictionary+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Additions.m"; sourceTree = "<group>"; };
 		082F9B2717016FD000FC8BBB /* NSMutableArray+Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Stack.h"; sourceTree = "<group>"; };
 		082F9B2817016FD000FC8BBB /* NSMutableArray+Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Stack.m"; sourceTree = "<group>"; };
 		082F9B2917016FD000FC8BBB /* NSNumber+format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+format.h"; sourceTree = "<group>"; };
@@ -200,8 +194,15 @@
 		082F9B5217016FD000FC8BBB /* MessageEntrySendButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButtonPressed.png; sourceTree = "<group>"; };
 		082F9B5317016FD000FC8BBB /* MessageEntrySendButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButtonPressed@2x.png"; sourceTree = "<group>"; };
 		08479F491709EE17005259BD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		0856C162170434DB00E559E6 /* UIResponder+APP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+APP.h"; sourceTree = "<group>"; };
-		0856C163170434DB00E559E6 /* UIResponder+APP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+APP.m"; sourceTree = "<group>"; };
+		0856C162170434DB00E559E6 /* UIResponder+APP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIResponder+APP.h"; path = "../UIResponder+APP.h"; sourceTree = "<group>"; };
+		0856C163170434DB00E559E6 /* UIResponder+APP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIResponder+APP.m"; path = "../UIResponder+APP.m"; sourceTree = "<group>"; };
+		088FAC60170C8080005D5872 /* ImportHeaders.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = ImportHeaders.sh; sourceTree = "<group>"; };
+		088FAC65170C81F7005D5872 /* DependLibHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DependLibHeaders.h; sourceTree = "<group>"; };
+		088FAC66170C828E005D5872 /* CJPYUtils.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CJPYUtils.podspec; sourceTree = "<group>"; };
+		088FAC68170C82CC005D5872 /* CJPYUtilsHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPYUtilsHeaders.h; sourceTree = "<group>"; };
+		08948FE0170D28B300EAFF0A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		08948FE3170D3E2800EAFF0A /* NSIndexPath+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+Create.h"; sourceTree = "<group>"; };
+		08948FE4170D3E2800EAFF0A /* NSIndexPath+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+Create.m"; sourceTree = "<group>"; };
 		08DF8D2C1701DCFD006A7DDE /* UIStoryboardSegue+content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboardSegue+content.h"; sourceTree = "<group>"; };
 		08DF8D2D1701DCFD006A7DDE /* UIStoryboardSegue+content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboardSegue+content.m"; sourceTree = "<group>"; };
 		08E7D9A11705A116000FB5F1 /* CJPYCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPYCollectionViewController.h; sourceTree = "<group>"; };
@@ -228,6 +229,8 @@
 		082F9AB317016FA500FC8BBB = {
 			isa = PBXGroup;
 			children = (
+				088FAC66170C828E005D5872 /* CJPYUtils.podspec */,
+				088FAC60170C8080005D5872 /* ImportHeaders.sh */,
 				08479F491709EE17005259BD /* Podfile */,
 				082F9AC517016FA500FC8BBB /* Utils */,
 				082F9ABE17016FA500FC8BBB /* Frameworks */,
@@ -258,6 +261,9 @@
 		082F9AC517016FA500FC8BBB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				088FAC65170C81F7005D5872 /* DependLibHeaders.h */,
+				082F9AEC17016FD000FC8BBB /* CJPYUtilsGlobals.h */,
+				088FAC68170C82CC005D5872 /* CJPYUtilsHeaders.h */,
 				082F9B1017016FD000FC8BBB /* services */,
 				082F9AFC17016FD000FC8BBB /* Resources */,
 				082F9AF917016FD000FC8BBB /* models */,
@@ -265,16 +271,9 @@
 				08DF8D2B1701DCD9006A7DDE /* StoryBoard */,
 				082F9ADC17016FD000FC8BBB /* asi-http-request-oauth */,
 				082F9AEE17016FD000FC8BBB /* controllers */,
-				082F9AEC17016FD000FC8BBB /* CJPYUtilsGlobals.h */,
-				082F9AED17016FD000FC8BBB /* CJPYUtilsHeader.h */,
-				082F9B0F17016FD000FC8BBB /* SDWebCacheHeader.h */,
 				082F9B1317016FD000FC8BBB /* utils */,
 				082F9B4917016FD000FC8BBB /* views */,
-				082F9ACE17016FA500FC8BBB /* UtilsApp.h */,
-				082F9ACF17016FA500FC8BBB /* UtilsApp.m */,
 				082F9AC617016FA500FC8BBB /* Supporting Files */,
-				0856C162170434DB00E559E6 /* UIResponder+APP.h */,
-				0856C163170434DB00E559E6 /* UIResponder+APP.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -284,11 +283,11 @@
 			children = (
 				082F9AC717016FA500FC8BBB /* Utils-Info.plist */,
 				082F9AC817016FA500FC8BBB /* InfoPlist.strings */,
-				082F9ACB17016FA500FC8BBB /* main.m */,
 				082F9ACD17016FA500FC8BBB /* Utils-Prefix.pch */,
 				082F9AD117016FA500FC8BBB /* Default.png */,
 				082F9AD317016FA500FC8BBB /* Default@2x.png */,
 				082F9AD517016FA500FC8BBB /* Default-568h@2x.png */,
+				08948FE0170D28B300EAFF0A /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -315,6 +314,8 @@
 		082F9AEE17016FD000FC8BBB /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				08948FE2170D293D00EAFF0A /* App */,
+				08948FDF170D261B00EAFF0A /* PopoverController */,
 				08E7D99E17059ED5000FB5F1 /* WebViewController */,
 				08E7D99D17059EC0000FB5F1 /* TableViewController */,
 				086F96A217055A33005D1515 /* CollectionViewController */,
@@ -371,8 +372,6 @@
 				082F9B1A17016FD000FC8BBB /* CJPYUtils.h */,
 				082F9B2317016FD000FC8BBB /* MBProgressHUD+Message.h */,
 				082F9B2417016FD000FC8BBB /* MBProgressHUD+Message.m */,
-				082F9B2517016FD000FC8BBB /* NSDictionary+Additions.h */,
-				082F9B2617016FD000FC8BBB /* NSDictionary+Additions.m */,
 				082F9B2717016FD000FC8BBB /* NSMutableArray+Stack.h */,
 				082F9B2817016FD000FC8BBB /* NSMutableArray+Stack.m */,
 				082F9B2917016FD000FC8BBB /* NSNumber+format.h */,
@@ -390,8 +389,6 @@
 				08E7D99F17059F33000FB5F1 /* UIImage */,
 				082F9B3F17016FD000FC8BBB /* UILabel+AutoLine.h */,
 				082F9B4017016FD000FC8BBB /* UILabel+AutoLine.m */,
-				082F9B4117016FD000FC8BBB /* UIPopoverController+Additions.h */,
-				082F9B4217016FD000FC8BBB /* UIPopoverController+Additions.m */,
 				082F9B4517016FD000FC8BBB /* UIView+addtions.h */,
 				082F9B4617016FD000FC8BBB /* UIView+addtions.m */,
 			);
@@ -431,8 +428,29 @@
 				082F9B1C17016FD000FC8BBB /* CJPYWaterFallCollectionLayout.m */,
 				08E7D9A11705A116000FB5F1 /* CJPYCollectionViewController.h */,
 				08E7D9A21705A116000FB5F1 /* CJPYCollectionViewController.m */,
+				08948FE3170D3E2800EAFF0A /* NSIndexPath+Create.h */,
+				08948FE4170D3E2800EAFF0A /* NSIndexPath+Create.m */,
 			);
 			name = CollectionViewController;
+			sourceTree = "<group>";
+		};
+		08948FDF170D261B00EAFF0A /* PopoverController */ = {
+			isa = PBXGroup;
+			children = (
+				082F9B4117016FD000FC8BBB /* UIPopoverController+Additions.h */,
+				082F9B4217016FD000FC8BBB /* UIPopoverController+Additions.m */,
+			);
+			name = PopoverController;
+			path = ../utils;
+			sourceTree = "<group>";
+		};
+		08948FE2170D293D00EAFF0A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0856C162170434DB00E559E6 /* UIResponder+APP.h */,
+				0856C163170434DB00E559E6 /* UIResponder+APP.m */,
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 		08DF8D2B1701DCD9006A7DDE /* StoryBoard */ = {
@@ -512,6 +530,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 082F9AD917016FA500FC8BBB /* Build configuration list for PBXNativeTarget "Utils" */;
 			buildPhases = (
+				088FAC62170C80B4005D5872 /* ShellScript */,
 				082F9AB817016FA500FC8BBB /* Sources */,
 				082F9AB917016FA500FC8BBB /* Frameworks */,
 				082F9ABA17016FA500FC8BBB /* Resources */,
@@ -590,12 +609,27 @@
 				082F9B9717016FD000FC8BBB /* MessageEntrySendButtonPressed.png in Resources */,
 				082F9B9817016FD000FC8BBB /* MessageEntrySendButtonPressed@2x.png in Resources */,
 				08479F4A1709EE17005259BD /* Podfile in Resources */,
+				088FAC61170C8080005D5872 /* ImportHeaders.sh in Resources */,
+				088FAC67170C828E005D5872 /* CJPYUtils.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		088FAC62170C80B4005D5872 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./ImportHeaders.sh;
+		};
 		CDB6BA6C493A4CE491346ADD /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -617,8 +651,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082F9ACC17016FA500FC8BBB /* main.m in Sources */,
-				082F9AD017016FA500FC8BBB /* UtilsApp.m in Sources */,
 				082F9B5417016FD000FC8BBB /* ASIFormDataRequest+OAuth.m in Sources */,
 				082F9B5517016FD000FC8BBB /* ASIHTTPRequest+OAuth.m in Sources */,
 				082F9B5717016FD000FC8BBB /* NSData+Base64.m in Sources */,
@@ -634,7 +666,6 @@
 				082F9B7B17016FD000FC8BBB /* GAI+Utils.m in Sources */,
 				082F9B7C17016FD000FC8BBB /* IMTWebView.m in Sources */,
 				082F9B7D17016FD000FC8BBB /* MBProgressHUD+Message.m in Sources */,
-				082F9B7E17016FD000FC8BBB /* NSDictionary+Additions.m in Sources */,
 				082F9B7F17016FD000FC8BBB /* NSMutableArray+Stack.m in Sources */,
 				082F9B8017016FD000FC8BBB /* NSNumber+format.m in Sources */,
 				082F9B8117016FD000FC8BBB /* NSString+HTML.m in Sources */,
@@ -656,6 +687,8 @@
 				08DF8D2E1701DCFD006A7DDE /* UIStoryboardSegue+content.m in Sources */,
 				0856C164170434DB00E559E6 /* UIResponder+APP.m in Sources */,
 				08E7D9A31705A116000FB5F1 /* CJPYCollectionViewController.m in Sources */,
+				08948FE1170D28B300EAFF0A /* main.m in Sources */,
+				08948FE5170D3E2800EAFF0A /* NSIndexPath+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
