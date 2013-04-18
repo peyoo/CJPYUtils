@@ -13,4 +13,5 @@
 + (BOOL)hideHUDForView:(UIView *)view message:(NSString*)message delay:(NSTimeInterval)delay;
 + (BOOL)hideHUDForView:(UIView *)view message:(NSString*)message subMessage:(NSString*)detailMessage delay:(NSTimeInterval)delay;
 
++(void)showWithView:(UIView*)view  title:(NSString*)title message:(NSString*)message delay:(NSTimeInterval)delay;
 @end

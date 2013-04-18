@@ -19,7 +19,7 @@ static id PinBoardService;
 
 @implementation ASIHTTPRequest (CJPY)
 
-+(ASIHTTPRequest*)queue:(ASINetworkQueue*)queue request:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers before:(CJPYObjectBlock)before success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
++(ASIHTTPRequest*)queue:(ASINetworkQueue*)queue request:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers before:(CJPYObjectBlock)before success:(RequestSuccess)success fail:(CJPYErrorBlock)fail{
     NSMutableString * requestURL=[[NSMutableString alloc] initWithString:url];
     if (paras) {
         [paras each:^(NSString * key, NSString * value) {
@@ -41,10 +41,15 @@ static id PinBoardService;
     
     request.completionBlock=^{
         NSString * page=weakRequest.responseString;
-        success(page);
+        if (success) {
+            success(weakRequest,page);
+        }
+        
     };
     [request setFailedBlock:^{
-        fail(weakRequest.error);
+        if (fail) {
+            fail(weakRequest.error);
+        }
     }];
     if (queue) {
         [queue addOperation:request];
@@ -53,15 +58,15 @@ static id PinBoardService;
     }
     return request;
 }
-+(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers before:(CJPYObjectBlock)before success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
++(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers before:(CJPYObjectBlock)before success:(RequestSuccess)success fail:(CJPYErrorBlock)fail{
     return [ASIHTTPRequest queue:nil request:url paras:paras headers:headers before:before success:success fail:fail];
 }
-+(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)paras success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
++(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)paras success:(RequestSuccess)success fail:(CJPYErrorBlock)fail{
     return [ASIHTTPRequest request:url paras:paras headers:nil before:nil success:success fail:fail];
 }
 
 
-+(ASIFormDataRequest*)queue:(ASINetworkQueue*)queue form:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
++(ASIFormDataRequest*)queue:(ASINetworkQueue*)queue form:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before success:(RequestSuccess)success fail:(CJPYErrorBlock)fail{
     NSMutableString * requestURL=[[NSMutableString alloc] initWithString:url];
     if (paras) {
         [paras each:^(NSString * key, NSString * value) {
@@ -89,10 +94,14 @@ static id PinBoardService;
     
     request.completionBlock=^{
         NSString * page=weakRequest.responseString;
-        success(page);
+        if (success) {
+            success(weakRequest,page);
+        }
     };
     [request setFailedBlock:^{
-        fail(weakRequest.error);
+        if (fail) {
+            fail(weakRequest.error);
+        }
     }];
     if (queue) {
         [queue addOperation:request];
@@ -101,11 +110,20 @@ static id PinBoardService;
     }
     return request;
 }
-+(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before  success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before success:(RequestSuccess)success fail:(CJPYErrorBlock)fail{
+    return [ASIHTTPRequest queue:nil form:url paras:paras headers:headers formParas:formParas before:before success:success fail:fail];
+
+}
+
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before  success:(RequestSuccess)success fail:(CJPYErrorBlock)fail{
     return [ASIHTTPRequest queue:nil form:url paras:paras headers:nil formParas:formParas before:before  success:success fail:fail];
 }
 
-+(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail{
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers formParas:(NSDictionary*)formParas success:(RequestSuccess)success fail:(CJPYErrorBlock)fail{
+    return [ASIHTTPRequest queue:nil form:url paras:paras headers:headers formParas:formParas before:nil success:success fail:fail];
+}
+
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas success:(RequestSuccess)success fail:(CJPYErrorBlock)fail{
     return [ASIHTTPRequest queue:nil form:url paras:paras headers:nil formParas:formParas before:nil  success:success fail:fail];
 }
 

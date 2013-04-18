@@ -22,6 +22,8 @@ Pod::Spec.new do |s|
   s.dependency 'MagicalRecord'
   s.dependency 'SFHFKeychainUtils'
   s.dependency 'Slash'
+  s.dependency 'UIGlossyButton'
+  s.dependency 'NullSafe'
 
 
 end

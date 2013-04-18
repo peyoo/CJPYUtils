@@ -13,11 +13,12 @@
 #import "ASIFormDataRequest+OAuth.h"
 
 
-@class CJPYRequest;
+typedef void (^RequestSuccess)(ASIHTTPRequest* request, NSString *page);
 
+@class CJPYRequest;
 @class ASINetworkQueue;
 @protocol CJPYService <NSObject>
-
+@optional
 -(void)query:(CJPYRequest*)request success:(CJPYArrayBlock)successBlock fail:(CJPYErrorBlock)errorblock;
 
 @end
@@ -27,18 +28,18 @@
 
 
 
-+(ASIHTTPRequest*)queue:(ASINetworkQueue*)queue request:(NSString*)url paras:(NSDictionary*)dict headers:(NSDictionary*)dict before:(CJPYObjectBlock)before success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
-+(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)dict headers:(NSDictionary*)headers before:(CJPYObjectBlock)before success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
-+(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)paras success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
++(ASIHTTPRequest*)queue:(ASINetworkQueue*)queue request:(NSString*)url paras:(NSDictionary*)dict headers:(NSDictionary*)dict before:(CJPYObjectBlock)before success:(RequestSuccess)success fail:(CJPYErrorBlock)fail;
++(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)dict headers:(NSDictionary*)headers before:(CJPYObjectBlock)before success:(RequestSuccess)success fail:(CJPYErrorBlock)fail;
++(ASIHTTPRequest*)request:(NSString*)url paras:(NSDictionary*)paras success:(RequestSuccess)success fail:(CJPYErrorBlock)fail;
 
 
 
 
-+(ASIFormDataRequest*)queue:(ASINetworkQueue*)queue  form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before  success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
-+(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before  success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
-
-+(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas success:(CJPYObjectBlock)success fail:(CJPYErrorBlock)fail;
-
++(ASIFormDataRequest*)queue:(ASINetworkQueue*)queue form:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before success:(RequestSuccess)success fail:(CJPYErrorBlock)fail;
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before  success:(RequestSuccess)success fail:(CJPYErrorBlock)fail;
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before success:(RequestSuccess)success fail:(CJPYErrorBlock)fail;
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras formParas:(NSDictionary*)formParas success:(RequestSuccess)success fail:(CJPYErrorBlock)fail;
++(ASIFormDataRequest*)form:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers formParas:(NSDictionary*)formParas success:(RequestSuccess)success fail:(CJPYErrorBlock)fail;
 @end
 
 @interface ASIFormDataRequest (CJPY)

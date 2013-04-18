@@ -22,8 +22,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 }
 
 -(void)configAnaytics:(NSString*)trackID{
-    [GAI sharedInstance].dispatchInterval=20;
-    [GAI sharedInstance].trackUncaughtExceptions=YES;
+    [GAI sharedInstance].dispatchInterval=10;
+    [GAI sharedInstance].trackUncaughtExceptions=NO;
     [[GAI sharedInstance] trackerWithTrackingId:trackID];
 }
 

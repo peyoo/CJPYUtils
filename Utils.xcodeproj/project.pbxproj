@@ -81,6 +81,7 @@
 		088FAC67170C828E005D5872 /* CJPYUtils.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 088FAC66170C828E005D5872 /* CJPYUtils.podspec */; };
 		08948FE1170D28B300EAFF0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08948FE0170D28B300EAFF0A /* main.m */; };
 		08948FE5170D3E2800EAFF0A /* NSIndexPath+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 08948FE4170D3E2800EAFF0A /* NSIndexPath+Create.m */; };
+		089CAC03171176B900F9F615 /* CJPYFetchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 089CAC02171176B900F9F615 /* CJPYFetchedTableViewController.m */; };
 		08DF8D2E1701DCFD006A7DDE /* UIStoryboardSegue+content.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DF8D2D1701DCFD006A7DDE /* UIStoryboardSegue+content.m */; };
 		08E7D9A31705A116000FB5F1 /* CJPYCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E7D9A21705A116000FB5F1 /* CJPYCollectionViewController.m */; };
 		AEC8D56D92DE4F0AAA02BAD6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D65A6876F44D31A5B2C0D6 /* libPods.a */; };
@@ -203,6 +204,8 @@
 		08948FE0170D28B300EAFF0A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08948FE3170D3E2800EAFF0A /* NSIndexPath+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+Create.h"; sourceTree = "<group>"; };
 		08948FE4170D3E2800EAFF0A /* NSIndexPath+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+Create.m"; sourceTree = "<group>"; };
+		089CAC01171176B900F9F615 /* CJPYFetchedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPYFetchedTableViewController.h; sourceTree = "<group>"; };
+		089CAC02171176B900F9F615 /* CJPYFetchedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJPYFetchedTableViewController.m; sourceTree = "<group>"; };
 		08DF8D2C1701DCFD006A7DDE /* UIStoryboardSegue+content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboardSegue+content.h"; sourceTree = "<group>"; };
 		08DF8D2D1701DCFD006A7DDE /* UIStoryboardSegue+content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboardSegue+content.m"; sourceTree = "<group>"; };
 		08E7D9A11705A116000FB5F1 /* CJPYCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJPYCollectionViewController.h; sourceTree = "<group>"; };
@@ -482,6 +485,8 @@
 				082F9AF217016FD000FC8BBB /* CJPYMutiSelectViewController.m */,
 				082F9AF317016FD000FC8BBB /* CJPYSingleSelectViewController.h */,
 				082F9AF417016FD000FC8BBB /* CJPYSingleSelectViewController.m */,
+				089CAC01171176B900F9F615 /* CJPYFetchedTableViewController.h */,
+				089CAC02171176B900F9F615 /* CJPYFetchedTableViewController.m */,
 			);
 			name = TableViewController;
 			sourceTree = "<group>";
@@ -689,6 +694,7 @@
 				08E7D9A31705A116000FB5F1 /* CJPYCollectionViewController.m in Sources */,
 				08948FE1170D28B300EAFF0A /* main.m in Sources */,
 				08948FE5170D3E2800EAFF0A /* NSIndexPath+Create.m in Sources */,
+				089CAC03171176B900F9F615 /* CJPYFetchedTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

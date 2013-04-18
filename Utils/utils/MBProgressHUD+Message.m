@@ -35,4 +35,9 @@
 	}
 	return NO;
 }
+
++(void)showWithView:(UIView*)view  title:(NSString*)title message:(NSString*)message delay:(NSTimeInterval)delay{
+    [MBProgressHUD showHUDAddedTo:view animated:NO];
+    [MBProgressHUD hideHUDForView:view message:title subMessage:message delay:delay];
+}
 @end

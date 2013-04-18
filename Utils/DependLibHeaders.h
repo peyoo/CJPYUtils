@@ -27,3 +27,5 @@
 #import "iRate.h"
 #import "iVersion.h"
 #import "iNotify.h"
+
+#import "NullSafe.h"

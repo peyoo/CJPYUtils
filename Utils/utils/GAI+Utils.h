@@ -15,6 +15,6 @@
 +(void)trackException:(NSException*)exception;
 
 
-
++(void)trackView:(NSString*)view;
 
 @end

@@ -44,6 +44,7 @@
 }
 
 -(void)setProgressImageWithURL:(NSURL*)url{
+     [(UIProgressView *)[self viewWithTag:kSDWebImageProgressView] setHidden:YES];
     __weak UIImageView * sself=self;
     
     [self setImageWithURL:url placeholderImage:self.image options:0 progress:^(NSUInteger receivedSize, long long expectedSize) {
@@ -73,6 +74,7 @@
 }
 
 -(void)setMayGifProgressImageWithURL:(NSURL*)url{
+     [(UIProgressView *)[self viewWithTag:kSDWebImageProgressView] setHidden:YES];
     __weak UIImageView * sself=self;
     [self setImageWithURL:url placeholderImage:self.image options:0 progress:^(NSUInteger receivedSize, long long expectedSize) {
         if (sself==nil) {

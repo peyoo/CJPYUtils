@@ -6,6 +6,7 @@
 #import "CJPYUtilsGlobals.h"
 #import "CJPYUtilsHeaders.h"
 #import "CJPYCollectionViewController.h"
+#import "CJPYFetchedTableViewController.h"
 #import "CJPYMutiSelectViewController.h"
 #import "CJPYSingleSelectViewController.h"
 #import "NSIndexPath+Create.h"

@@ -11,13 +11,24 @@
 @implementation GAI (Utils)
 
 +(void)trackError:(NSError*)error{
-    NSLog(@"error:%@",error);
-    [[[GAI sharedInstance] defaultTracker ] trackException:NO withNSError:error];
+    
+    if (error) {
+        NSLog(@"error:%@",error);
+        [[[GAI sharedInstance] defaultTracker ] trackException:NO withNSError:error];
+    }
+
 }
 
 +(void)trackException:(NSException*)exception{
-    NSLog(@"exception:%@",exception);
+    if (exception) {
+        NSLog(@"exception:%@",exception);
     [[[GAI sharedInstance] defaultTracker] trackException:NO withNSException:exception];
+    }
+    
+}
+
++(void)trackView:(NSString*)view{
+    [[[GAI sharedInstance] defaultTracker] trackView:view];
 }
 
 @end
