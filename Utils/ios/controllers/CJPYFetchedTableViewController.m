@@ -35,10 +35,10 @@
 			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 			break;
 
-		case NSFetchedResultsChangeUpdate:
-			[self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+		case NSFetchedResultsChangeUpdate:{
+            [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 			break;
-
+        }
 		case NSFetchedResultsChangeMove:
 			[tableView deleteRowsAtIndexPaths:[NSArray
 			arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];

@@ -3,6 +3,8 @@
 #import "BlocksKit.h"
 #import <RegexKitLite.h>
 #import "ASINetworkQueue.h"
+//#import "NSString+URLEncode.h"
+
 
 static id PinBoardService;
 
@@ -17,13 +19,25 @@ static id PinBoardService;
 }
 @end
 
+@implementation NSString (URLEncode)
+
+- (NSString *)encodeForURL
+{
+    // See http://en.wikipedia.org/wiki/Percent-encoding and RFC3986
+    // Hyphen, Period, Understore & Tilde are expressly legal
+    const CFStringRef legalURLCharactersToBeEscaped = CFSTR("!*'();:@&=+$,/?#[]<>\"{}|\\`^% ");
+    
+    return (__bridge_transfer NSString *)(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, legalURLCharactersToBeEscaped, kCFStringEncodingUTF8));
+}
+@end
 @implementation ASIHTTPRequest (CJPY)
+
 
 +(ASIHTTPRequest*)queue:(ASINetworkQueue*)queue request:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers before:(CJPYObjectBlock)before success:(RequestSuccess)success fail:(CJPYErrorBlock)fail{
     NSMutableString * requestURL=[[NSMutableString alloc] initWithString:url];
     if (paras) {
         [paras each:^(NSString * key, NSString * value) {
-            [requestURL replaceOccurrencesOfRegex:key withString:value];
+            [requestURL replaceOccurrencesOfRegex:key withString:[value encodeForURL]];
         }];
     }
     ASIHTTPRequest * request=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:requestURL]];

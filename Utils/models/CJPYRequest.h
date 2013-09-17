@@ -7,51 +7,43 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CJPYUtilsHeaders.h"
 
 typedef enum CJPYRequestState{
     RequestStateStart,
     RequestStateLoading,
     RequestStateSuccess,
     RequestStateFailed,
-    RequestStateCancel
+    RequestStateCanceled
 } RequestState;
 
 
-@interface CJPYRequest : NSObject{
-    @package
-    NSMutableDictionary * _dict;
-
-}
+@interface CJPYRequest : NSObject
 
 @property(nonatomic,copy) NSString * type;
 @property(nonatomic,copy) NSString * title;
 @property(nonatomic,strong) NSMutableDictionary * para;
 
+
+//paging
 @property(nonatomic)BOOL hasMore;
 @property(nonatomic)NSInteger currentPageIndex;
+@property(nonatomic)NSInteger maxPageNum;
+@property(nonatomic)NSInteger numOfPage;
+@property(nonatomic,strong)NSString * nextURL;
 
-
-@property(nonatomic) NSInteger maxResultCount;
-@property(nonatomic,strong) NSMutableArray * pins;
-
-
-@property(nonatomic)NSInteger selectIndex;
 
 @property RequestState state;
 @property(nonatomic)NSOperation* operation;
 
+
+
 -(id)init:(CJPYRequest*)request;
 -(id)init:(NSString*)type title:(NSString*)title dict:(NSDictionary*)dict;
--(id)init:(NSString*)type title:(NSString*)title paras:(id)firstObject,...NS_REQUIRES_NIL_TERMINATION;
 
+-(BOOL)isRefreshable;
 -(void)refresh;
-
--(void)addPins:(NSArray *)pins;
-
+-(BOOL)beginLoad:(BOOL(^)())loadable;
+-(void)endLoad;
 -(void)cancel;
-
--(void)more:(CJPYArrayBlock)success fail:(CJPYErrorBlock)fail;
-
 
 @end

@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CJPYUtilsGlobals.h"
+
+#import "ASIFormDataRequest.h"
 #import "ASIHTTPRequest.h"
-#import "ASIHTTPRequest+OAuth.h"
-#import "ASIFormDataRequest+OAuth.h"
 
-
+#import "CJPYUtilsGlobals.h"
 typedef void (^RequestSuccess)(ASIHTTPRequest* request, NSString *page);
 
 @class CJPYRequest;
@@ -22,7 +21,11 @@ typedef void (^RequestSuccess)(ASIHTTPRequest* request, NSString *page);
 -(void)query:(CJPYRequest*)request success:(CJPYArrayBlock)successBlock fail:(CJPYErrorBlock)errorblock;
 
 @end
+@interface NSString (URLEncode)
 
+- (NSString *)encodeForURL;
+
+@end
 @interface ASIHTTPRequest (CJPY)
 
 

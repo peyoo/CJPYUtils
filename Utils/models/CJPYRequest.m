@@ -18,7 +18,6 @@
         self.type=request.type;
         self.title=request.title;
         self.para=[NSMutableDictionary dictionaryWithDictionary:request.para];
-        self.pins=[NSMutableArray array];
         [self refresh];
     }
     return self;
@@ -30,7 +29,6 @@
         self.type=type;
         self.title=title;
         self.para=[NSMutableDictionary dictionaryWithDictionary:dict];
-        self.pins=[NSMutableArray array];
         [self refresh];
     }
     return self;
@@ -65,8 +63,6 @@
             }
             self.para=dict;
         }
-        self.pins=[NSMutableArray array];
-        _dict=[NSMutableDictionary dictionary];
         [self refresh];
     }
     return self;    
@@ -85,45 +81,34 @@
     if (self.operation) {
         [self.operation cancel];
     }
+    self.state=RequestStateCanceled;
 }
 -(void)refresh{
     self.state=RequestStateStart;
     self.currentPageIndex=0;
     self.hasMore=YES;
-    if (!_dict) {
-        _dict=[NSMutableDictionary dictionary];
+}
+-(BOOL)beginLoad:(BOOL(^)())block{
+    if (self.state==RequestStateLoading) {
+        return NO;
     }
-    [_dict removeAllObjects];
-    [_pins removeAllObjects];
+    if (!self.hasMore) {
+        return NO;
+    }
+    if (block&&!block()) {
+        return NO;
+    }
+    return YES;
 }
 
--(void)addPins:(NSArray *)pins{
-    [self.pins addObjectsFromArray:pins];
+-(void)endLoad{
+    self.state=RequestStateSuccess;
 }
 
-
--(void)more:(CJPYArrayBlock)success fail:(CJPYErrorBlock)fail{
-    
-        self.state=RequestStateLoading;
-        [[ServiceFactory service] query:self success:^(NSArray* array){
-            if (self.currentPageIndex==0) {
-                [self.pins removeAllObjects];
-            }
-            self.currentPageIndex+=1;
-            if ([array count]==0) {
-                self.hasMore=NO;
-            }
-            [self.pins addObjectsFromArray:array];
-            if (success) {
-                success(array);
-            }
-            self.state=RequestStateSuccess;
-        } fail:^(NSError * error){
-            self.state=RequestStateFailed;
-            fail(error);
-        }];
-    
+-(BOOL)isRefreshable{
+    return self.state==RequestStateStart;
 }
+
 
 -(NSDictionary*)asJsonDictionary{
     NSMutableDictionary * dict=[NSMutableDictionary dictionary];

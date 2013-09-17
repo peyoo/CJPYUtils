@@ -20,6 +20,9 @@
         UINavigationController * nav=[[UINavigationController alloc] initWithRootViewController:controller];
         nav.modalPresentationStyle=style;
         nav.modalTransitionStyle=transitionStyle;
+        if ([controller conformsToProtocol:@protocol(UINavigationControllerDelegate)]) {
+            nav.delegate=(id<UINavigationControllerDelegate>)controller;
+        }
         [self presentViewController:nav animated:YES completion:completion];
         return nav;
     }
