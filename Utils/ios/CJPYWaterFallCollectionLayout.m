@@ -87,8 +87,6 @@
 {
     [_columnHeights removeAllObjects];
     _columnHeights = nil;
-    [_itemAttributes removeAllObjects];
-    _itemAttributes = nil;
 }
 
 #pragma mark - Methods to Override
