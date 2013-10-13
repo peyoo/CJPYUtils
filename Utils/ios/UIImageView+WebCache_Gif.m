@@ -18,7 +18,7 @@
 - (void)queryDiskGifForKey:(NSString *)key done:(void (^)(UIImage *gifImage))doneBlock{
     if (!doneBlock) return;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        UIImage * image=[UIImage animatedGIFWithFilepath:[self cachePathForKey:key]];
+        UIImage * image=[UIImage animatedGIFWithFilepath:[self cachedFileNameForKey:key]];
         dispatch_async(dispatch_get_main_queue(), ^{
             doneBlock(image);
         });

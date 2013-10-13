@@ -210,7 +210,7 @@
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
-   return NO;
+   return YES;
 }
 
 #pragma mark - Private Methods

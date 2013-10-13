@@ -11,7 +11,7 @@
 #import "UIImageView+WebCache.h"
 
 @interface SDImageCache(NSData)
-- (NSString *)cachePathForKey:(NSString *)key;
+- (NSString *)cachedFileNameForKey:(NSString *)key;
 
 - (void)queryDiskGifForKey:(NSString *)key done:(void (^)(UIImage *gifImage))doneBlock;
 @end
