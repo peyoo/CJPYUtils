@@ -17,5 +17,6 @@
 +(BOOL)notEmpty:(NSString*)str;
 
 -(BOOL)contain:(NSString*)str;
++ (NSString *)generateUUID;
 
 @end

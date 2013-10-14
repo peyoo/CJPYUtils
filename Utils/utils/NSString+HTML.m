@@ -14,6 +14,7 @@
     NSString *s = [self copy];
     while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
         s = [s stringByReplacingCharactersInRange:r withString:@""];
+    
     return s;
 }
 
@@ -165,5 +166,14 @@ finish:
     }
     return [self rangeOfString:str].location!=NSNotFound;
 }
+
++ (NSString *)generateUUID {
+    CFUUIDRef uuidObj = CFUUIDCreate(nil);
+    NSString *uuidString = (__bridge_transfer NSString*)CFUUIDCreateString(nil, uuidObj);
+    CFRelease(uuidObj);
+    return uuidString;
+}
+
+
 
 @end

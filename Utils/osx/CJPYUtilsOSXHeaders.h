@@ -28,6 +28,10 @@
 #import "NSNumber+format.h"
 #import "NSString+HTML.h"
 #import "NSUserDefaults+Additions.h"
+#import "NSString+Sound.h"
+#import "NSString+Browser.h"
+
+
 
 
 
