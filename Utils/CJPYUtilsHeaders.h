@@ -9,7 +9,6 @@
 #import "CJPYMutiSelectViewController.h"
 #import "CJPYSingleSelectViewController.h"
 #import "NSIndexPath+Create.h"
-#import "GAI+Utils.h"
 #import "IMTWebView.h"
 #import "MBProgressHUD+Message.h"
 #import "UIActionSheet+Blocks.h"

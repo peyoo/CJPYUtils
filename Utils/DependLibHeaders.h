@@ -8,8 +8,6 @@
 
 
 #import "Slash.h"
-#import "UIGlossyButton.h"
-#import "UIView+LayerEffects.h"
 
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
