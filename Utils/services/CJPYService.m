@@ -1,6 +1,6 @@
 
 #import "CJPYService.h"
-#import "BlocksKit.h"
+#import <BlocksKit.h>
 #import <RegexKitLite.h>
 #import "ASINetworkQueue.h"
 //#import "NSString+URLEncode.h"
@@ -36,14 +36,14 @@ static id PinBoardService;
 +(ASIHTTPRequest*)queue:(ASINetworkQueue*)queue request:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers before:(CJPYObjectBlock)before success:(RequestSuccess)success fail:(CJPYErrorBlock)fail{
     NSMutableString * requestURL=[[NSMutableString alloc] initWithString:url];
     if (paras) {
-        [paras each:^(NSString * key, NSString * value) {
+        [paras bk_each:^(NSString * key, NSString * value) {
             [requestURL replaceOccurrencesOfRegex:key withString:[value encodeForURL]];
         }];
     }
     ASIHTTPRequest * request=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:requestURL]];
     
     if (headers) {
-        [headers each:^(NSString * key, NSString * value) {
+        [headers bk_each:^(NSString * key, NSString * value) {
             [request addRequestHeader:key value:value];
         }];
     }
@@ -83,20 +83,20 @@ static id PinBoardService;
 +(ASIFormDataRequest*)queue:(ASINetworkQueue*)queue form:(NSString*)url paras:(NSDictionary*)paras headers:(NSDictionary*)headers formParas:(NSDictionary*)formParas before:(CJPYObjectBlock)before success:(RequestSuccess)success fail:(CJPYErrorBlock)fail{
     NSMutableString * requestURL=[[NSMutableString alloc] initWithString:url];
     if (paras) {
-        [paras each:^(NSString * key, NSString * value) {
+        [paras bk_each:^(NSString * key, NSString * value) {
             [requestURL replaceOccurrencesOfRegex:key withString:value];
         }];
     }
     ASIFormDataRequest * request=[ASIFormDataRequest requestWithURL:[NSURL URLWithString:requestURL]];
     
     if (headers) {
-        [headers each:^(NSString * key, NSString * value) {
+        [headers bk_each:^(NSString * key, NSString * value) {
             [request addRequestHeader:key value:value];
         }];
     }
     
     if (formParas) {
-        [formParas each:^(NSString * key, id  value) {
+        [formParas bk_each:^(NSString * key, id  value) {
             [request addPostValue:value forKey:key];
         }];
     }
@@ -146,7 +146,7 @@ static id PinBoardService;
 @implementation ASIFormDataRequest (CJPY)
 
 -(void)addPostValues:(NSDictionary*)dict{
-    [dict each:^(NSString* key, id obj) {
+    [dict bk_each:^(NSString* key, id obj) {
         [self addPostValue:obj forKey:key];
     }];
 }
