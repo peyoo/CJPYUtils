@@ -1,8 +1,7 @@
 platform :ios,'6.0'
 
 
-pod 'GoogleAnalytics-iOS-SDK','2.0beta4'
-pod 'JSONKit'
+pod 'JSONKit',:git=>'https://github.com/peyoo/JSONKitWithoutXcode4Warnings.git'
 pod 'BlocksKit'
 pod 'OHAttributedLabel'
 pod 'RegexKitLite'
@@ -10,7 +9,7 @@ pod 'ASIHTTPRequest'
 pod 'iRate'
 pod 'iVersion'
 pod 'iNotify'
-pod 'MBProgressHUD',:head
+pod 'MBProgressHUD'
 pod 'Reachability'
 pod 'SDWebImage'
 pod 'SVWebViewController'

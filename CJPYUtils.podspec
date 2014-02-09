@@ -2,28 +2,29 @@ Pod::Spec.new do |s|
   s.name         = "CJPYUtils"
   s.version      = "0.0.1"
   s.summary      = "Some Utils classes. "
-  s.homepage  = ""
+  s.homepage     = ""
   s.license      = 'MIT'
   s.author       = { "CJPY Studio" => "cjpystudio@gmail.com" }
-  #s.source       = { :git => "https://github.com/500px/500px-iOS-api.git", :tag => "1.0.2" }
-  s.platform     = :ios, '6.0'
-  s.source_files = 'Classes', 'Utils/**/*.{h,m}'
+ 
   s.requires_arc = true
-  s.dependency 'GoogleAnalytics-iOS-SDK','2.0beta4'
   s.dependency 'JSONKit'
+  s.dependency 'NullSafe'
   s.dependency 'BlocksKit'
-  s.dependency 'OHAttributedLabel'
-  s.dependency 'ASIHTTPRequest'
   s.dependency 'iRate'
   s.dependency 'iVersion'
-  s.dependency 'iNotify'
-  s.dependency 'MBProgressHUD'
-  s.dependency 'SDWebImage'
+  s.dependency 'iNotify'  
   s.dependency 'MagicalRecord'
-  s.dependency 'SFHFKeychainUtils'
+  s.dependency 'ASIHTTPRequest'
   s.dependency 'Slash'
-  s.dependency 'UIGlossyButton'
-  s.dependency 'NullSafe'
-
+  
+  s.ios.source_files = "Utils/ios/**/*.{h,m}","Utils/CJPYUtilsHeaders.h",'Utils/models/**/*.{h,m}','Utils/services/**/*.{h,m}','Utils/utils/**/*.{h,m}','Utils/CJPYUtilsGlobals.h','Utils/DependLibHeaders.h'
+  s.ios.deployment_target = "6.0"
+  s.ios.dependency 'OHAttributedLabel'
+  s.ios.dependency 'MBProgressHUD'
+  s.ios.dependency 'SDWebImage'
+  s.ios.dependency 'SFHFKeychainUtils'  
+  
+  s.osx.source_files = "Utils/osx/**/*.{h,m}",'Utils/models/**/*.{h,m}','Utils/services/**/*.{h,m}','Utils/utils/**/*.{h,m}','Utils/CJPYUtilsGlobals.h','Utils/DependLibHeaders.h'
+  s.osx.deployment_target = "10.7"
 
 end
